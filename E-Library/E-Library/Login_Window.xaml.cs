@@ -13,11 +13,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data;
+
 namespace E_Library
 {
     /// <summary>
     /// Interaction logic for Login_Window.xaml
     /// </summary>
+    /// 
+
     public partial class Login_Window : Window
     {
         public Login_Window()
@@ -55,15 +59,54 @@ namespace E_Library
 
 
 
-            SqlConnection CRED_CONN = new SqlConnection();
+            SqlConnection CRED_CONN_USER = new SqlConnection();
+            CRED_CONN_USER.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Mike\\Desktop\\E-Library\\E-Library\\E-Library\\USERS_DB.mdf;Integrated Security=True;Connect Timeout=30";
 
-            CRED_CONN.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Mike\\Desktop\\E-Library\\E-Library\\E-Library\\BOOK_SAMPLE_DB.mdf;Connect Timeout=30;User ID=" + textBox_UName.Text + ";Password=" + texBox_Pass.Text + "";
+
 
             try
             {
-                CRED_CONN.Open();
+                CRED_CONN_USER.Open();
 
-                MessageBox.Show("Connection to DB is a success!");
+                SqlCommand USER_COMMAND = new SqlCommand("SELECT * FROM USER_CREDENTIALS WHERE U_NAME='" + textBox_UName.Text + "' AND U_PASS='" + texBox_Pass.Text + "'", CRED_CONN_USER);
+                USER_COMMAND.CommandType = CommandType.Text;
+
+                SqlDataAdapter USER_ADAPTER = new SqlDataAdapter();
+
+                USER_ADAPTER.SelectCommand = USER_COMMAND;
+
+                DataSet USER_DATASET = new DataSet();
+
+                USER_ADAPTER.Fill(USER_DATASET);
+
+
+                if(USER_DATASET.Tables[0].Rows.Count>0)
+                {
+                    string USER_TYPE1 = "admin";
+
+                    if(USER_TYPE1 == USER_DATASET.Tables[0].Rows[0]["U_TYPE"].ToString())
+                    {
+                        string USER_NAME = USER_DATASET.Tables[0].Rows[0]["U_NAME"].ToString();
+                        string USER_PASS = USER_DATASET.Tables[0].Rows[0]["U_PASS"].ToString();
+
+                        E_Library_System.MainWindow SubWindow = new E_Library_System.MainWindow();
+
+                        SubWindow.Show();
+
+                        this.Close();
+                    }
+                    else
+                    {
+                        string USER_NAME = USER_DATASET.Tables[0].Rows[0]["U_NAME"].ToString();
+                        string USER_PASS = USER_DATASET.Tables[0].Rows[0]["U_PASS"].ToString();
+                        MessageBox.Show("you are not an administrator, " +USER_NAME+"!");
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username or password.");
+                }
             }
             catch(Exception DB_EXCEPTION)
             {
