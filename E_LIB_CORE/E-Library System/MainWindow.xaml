@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="215.767" Width="856.108" AllowsTransparency="True" WindowStyle="None" UseLayoutRounding="False" Background="#FF52A4D3" MouseLeftButtonDown="E_Library_System_MouseLeftButtonDown">
 
-
+<!-- This is a comment for testing commit on github -->
     
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
