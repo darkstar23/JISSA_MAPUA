@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:E_Library_System"
         mc:Ignorable="d"
-        Title="MainWindow" Height="215.767" Width="856.108" AllowsTransparency="True" WindowStyle="None" UseLayoutRounding="False" Background="#FF52A4D3" MouseLeftButtonDown="E_Library_System_MouseLeftButtonDown">
+        Title="MainWindow" Height="215.767" Width="856.108" AllowsTransparency="False" WindowStyle="None" UseLayoutRounding="False" Background="#FF52A4D3" MouseLeftButtonDown="E_Library_System_MouseLeftButtonDown" Loaded="E_Library_System_Loaded" ResizeMode="NoResize">
 
     <!-- This is a comment for testing commit on github -->
 

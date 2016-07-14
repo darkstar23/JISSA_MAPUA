@@ -46,5 +46,10 @@ namespace E_Library_System
         {
             DragMove();
         }
+
+        private void E_Library_System_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
