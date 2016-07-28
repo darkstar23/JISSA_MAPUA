@@ -72,7 +72,7 @@ namespace E_Library
                 {
                     string USER_TYPE1 = "admin";
 
-                    if(USER_TYPE1 == USER_DATASET.Tables[0].Rows[0]["U_TYPE"].ToString())
+                    if (USER_TYPE1 == USER_DATASET.Tables[0].Rows[0]["U_TYPE"].ToString())
                     {
                         string USER_NAME = USER_DATASET.Tables[0].Rows[0]["U_NAME"].ToString();
                         string USER_PASS = USER_DATASET.Tables[0].Rows[0]["U_PASS"].ToString();
@@ -82,23 +82,31 @@ namespace E_Library
                         SubWindow.Show();
 
                         this.Close();
+
+                        CRED_CONN_USER.Close();
                     }
                     else
                     {
                         string USER_NAME = USER_DATASET.Tables[0].Rows[0]["U_NAME"].ToString();
                         string USER_PASS = USER_DATASET.Tables[0].Rows[0]["U_PASS"].ToString();
-                        MessageBox.Show("you are not an administrator, " +USER_NAME+"!");
+                        MessageBox.Show("you are not an administrator, " + USER_NAME + "!");
+
+                        CRED_CONN_USER.Close();
                     }
 
                 }
                 else
                 {
                     MessageBox.Show("Invalid username or password.");
+
+                    CRED_CONN_USER.Close();
                 }
             }
             catch(Exception DB_EXCEPTION)
             {
                 MessageBox.Show(DB_EXCEPTION.Message.ToString());
+
+                CRED_CONN_USER.Close();
             }
             
         }
