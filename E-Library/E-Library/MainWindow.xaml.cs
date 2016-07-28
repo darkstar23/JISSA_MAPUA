@@ -88,7 +88,7 @@ namespace E_Library_System
                 LIB_COMMAND.Parameters.AddWithValue("@Call_Number", textBox_CALL_NUM.Text);
                 LIB_COMMAND.Parameters.AddWithValue("@Book_Title", textBox_BOOK_DESCRIPT.Text);
 
-                LIB_COMMAND.Parameters.AddWithValue("@Book_Genre", textBox_BOOK_GENRE.SelectedValue.ToString());
+                LIB_COMMAND.Parameters.AddWithValue("@Book_Genre", textBox_BOOK_GENRE.SelectedValue);
 
                 LIB_COMMAND.ExecuteNonQuery();
 
@@ -103,6 +103,15 @@ namespace E_Library_System
 
                 CRED_CONN_LIB.Close();
             }
+        }
+
+        private void EXIT_BUTTON_Click(object sender, RoutedEventArgs e)
+        {
+            E_Library.Login_Window MAIN_LOGIN = new E_Library.Login_Window();
+
+            MAIN_LOGIN.Show();
+
+            this.Close();
         }
     }
 }

@@ -41,6 +41,12 @@
             </Button.Effect>
         </Button>
 
+        <Button x:Name="EXIT_BUTTON_MAIN" Content="EXIT" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Width="170" BorderThickness="0" Height="30" FontFamily="Segoe UI Semibold" FontSize="14" Background="#FFD2F0FA" Grid.Column="1" Click="EXIT_BUTTON_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+
         <Button x:Name="button_Close" Content="X" Grid.Column="1" HorizontalAlignment="Left" Margin="318,0,0,0" VerticalAlignment="Top" Width="35" Height="35" BorderThickness="0" FontFamily="Segoe UI Semibold" FontSize="14" Background="#FF52A4D3" Click="button_Close_Click"/>
 
         <Label x:Name="label" Content="Call Number: " HorizontalAlignment="Left" Margin="23,37,0,0" VerticalAlignment="Top" Height="30" Width="100" FontFamily="Segoe UI SemiBold" FontSize="14" Visibility="Visible">
@@ -63,7 +69,7 @@
 
         <TextBox x:Name="textBox_BOOK_DESCRIPT" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30" Margin="123,87,0,0" TextWrapping="Wrap" Text="Sample In WPF Applications" TextAlignment="Center" VerticalAlignment="Top" Width="240" FontFamily="Segoe UI SemiBold"/>
 
-        <ComboBox x:Name="textBox_BOOK_GENRE" BorderThickness="0" HorizontalAlignment="Left" Margin="123,137,0,0" VerticalAlignment="Top" Height="30" Width="240" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI SemiBold">
+        <ComboBox x:Name="textBox_BOOK_GENRE" BorderThickness="0" HorizontalAlignment="Left" Margin="123,137,0,0" VerticalAlignment="Top" Height="30" Width="240" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI SemiBold" SelectedValuePath="Content">
             <ComboBoxItem Content="Fiction"/>
             <ComboBoxItem Content="Non Fiction"/>
         </ComboBox>

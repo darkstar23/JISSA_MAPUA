@@ -73,5 +73,14 @@ namespace E_Library
 
             
         }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            E_Library.Login_Window BACK_TO_LOGIN = new Login_Window();
+
+            BACK_TO_LOGIN.Show();
+
+            this.Close();
+        }
     }
 }
