@@ -77,7 +77,7 @@ namespace E_Library_System
                 command.ExecuteNonQuery();
                 */
 
-                String DB_QUERY = "INSERT INTO BOOKS_IN_LIB (CALL_NUM, BOOK_TITLE, BOOK_GENRE) VALUES (@Call_Number, @Book_Title, @Book_Genre)";
+                String DB_QUERY = "INSERT INTO BOOKS_IN_LIB (CALL_NUM, BOOK_TITLE, BOOK_GENRE, DATE_ADDED) VALUES (@Call_Number, @Book_Title, @Book_Genre, GetDate())";
 
                 SqlCommand LIB_COMMAND = new SqlCommand(DB_QUERY, CRED_CONN_LIB);
 

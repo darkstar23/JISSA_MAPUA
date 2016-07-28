@@ -5,21 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:E_Library"
         mc:Ignorable="d"
-        Title="BookViewer" Height="300" Width="1014.294">
-    <Grid Loaded="Grid_Loaded">
-        <DataGrid x:Name="dataGrid_LIB_VIEWER" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Height="217" Width="985" AutoGenerateColumns="False">
+        Title="BookViewer" Height="300" Width="770.142">
+    <Grid Loaded="Grid_Loaded" Margin="0,0,2,0">
+        <DataGrid x:Name="dataGrid_LIB_VIEWER" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Height="217" Width="742" AutoGenerateColumns="False">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Call Number" Width="250" Binding="{Binding CALL_NUM}"/>
-                <DataGridTextColumn Header="Book's Title" Width="500" Binding="{Binding BOOK_TITLE}"/>
-                <DataGridTextColumn Header="Book's Genre" Width="259" Binding="{Binding BOOK_GENRE}"/>
+                <DataGridTextColumn Header="Call Number" Width="125" Binding="{Binding CALL_NUM}"/>
+                <DataGridTextColumn Header="Book's Title" Width="300" Binding="{Binding BOOK_TITLE}"/>
+                <DataGridTextColumn Header="Book's Genre" Width="150" Binding="{Binding BOOK_GENRE}"/>
+                <DataGridTextColumn Header="Date added" Width="175" Binding="{Binding DATE_ADDED}"/>
             </DataGrid.Columns>
 
         </DataGrid>
 
         <Label x:Name="label_Viewer" Content="Books we have in our Library:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="223" FontFamily="Segoe UI SemiBold" FontSize="14"/>
-        <Button x:Name="BORROW_BUTTON" Content="Borrow Selected Books" HorizontalAlignment="Left" Margin="647,10,0,0" VerticalAlignment="Top" Width="163" Height="27" BorderThickness="0" FontFamily="Segoe UI Semibold" FontSize="14" Background="#FF52A4D3" Click="button_Click"/>
-        <Button x:Name="EXIT_BUTTON" Content="EXIT" HorizontalAlignment="Left" Margin="832,10,0,0" VerticalAlignment="Top" Width="163" Height="27" BorderThickness="0" FontFamily="Segoe UI SemiBold" FontSize="14" Background="#FF52A4D3" Click="Exit_Click"/>
+        <Button x:Name="BORROW_BUTTON" Content="Borrow Selected Books" HorizontalAlignment="Left" Margin="402,10,0,0" VerticalAlignment="Top" Width="163" Height="24" BorderThickness="0" FontFamily="Segoe UI Semibold" FontSize="12" Background="#FF52A4D3" Click="button_Click"/>
+        <Button x:Name="EXIT_BUTTON" Content="EXIT" HorizontalAlignment="Left" Margin="587,10,0,0" VerticalAlignment="Top" Width="163" Height="24" BorderThickness="0" FontFamily="Segoe UI SemiBold" FontSize="12" Background="#FF52A4D3" Click="Exit_Click"/>
 
     </Grid>
 </Window>
