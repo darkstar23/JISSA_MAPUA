@@ -10,7 +10,7 @@
         <Label x:Name="label_UserName" Content="User name:" HorizontalAlignment="Left" Height="30" Margin="15,25,0,-49" VerticalAlignment="Top" FontFamily="Segoe UI SemiBold"/>
         <Label x:Name="label_Password" Content="Password:" HorizontalAlignment="Left" Height="30" Margin="22,55,0,-85" VerticalAlignment="Top" FontFamily="Segoe UI SemiBold"/>
         <TextBox x:Name="textBox_UName" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="20" Margin="95,30,0,-48" TextWrapping="Wrap" Text="your username" VerticalAlignment="Top" Width="120" FontFamily="Segoe UI SemiBold" FontSize="10" GotFocus="textBox_UName_GotFocus"/>
-        <TextBox x:Name="texBox_Pass" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="20" Margin="95,60,0,-79" TextWrapping="Wrap" Text="your password" VerticalAlignment="Top" Width="120" FontFamily="Segoe UI SemiBold" FontSize="10" GotFocus="texBox_Pass_GotFocus"/>
+        <PasswordBox x:Name="texBox_Pass"  HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="20" Margin="95,60,0,-79" VerticalAlignment="Top" Width="120" FontFamily="Segoe UI SemiBold" FontSize="10"/>
         <Button x:Name="button_Login" Content="Login" HorizontalAlignment="Left" Height="21" Margin="95,85,0,-106" VerticalAlignment="Top" Width="120" FontFamily="Segoe UI SemiBold" FontSize="10" Background="#FF52A4D3" Click="button_Login_Click"/>
 
     </Grid>

@@ -34,24 +34,12 @@ namespace E_Library
             textBox_UName.Text = "";
         }
 
-        private void texBox_Pass_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            texBox_Pass.Text = "";
-        }
-
         private void textBox_UName_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox textBox_USER = (TextBox)sender;
             textBox_USER.Text = string.Empty;
             textBox_USER.GotFocus -= textBox_UName_GotFocus;
 
-        }
-
-        private void texBox_Pass_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox textBox_PASS = (TextBox)sender;
-            textBox_PASS.Text = string.Empty;
-            textBox_PASS.GotFocus -= texBox_Pass_GotFocus;
         }
 
         private void button_Login_Click(object sender, RoutedEventArgs e)
@@ -68,7 +56,7 @@ namespace E_Library
             {
                 CRED_CONN_USER.Open();
 
-                SqlCommand USER_COMMAND = new SqlCommand("SELECT * FROM USER_CREDENTIALS WHERE U_NAME='" + textBox_UName.Text + "' AND U_PASS='" + texBox_Pass.Text + "'", CRED_CONN_USER);
+                SqlCommand USER_COMMAND = new SqlCommand("SELECT * FROM USER_CREDENTIALS WHERE U_NAME='" + textBox_UName.Text + "' AND U_PASS='" + texBox_Pass.Password + "'", CRED_CONN_USER);
                 USER_COMMAND.CommandType = CommandType.Text;
 
                 SqlDataAdapter USER_ADAPTER = new SqlDataAdapter();
