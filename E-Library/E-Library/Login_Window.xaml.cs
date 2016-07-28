@@ -44,16 +44,12 @@ namespace E_Library
 
         private void button_Login_Click(object sender, RoutedEventArgs e)
         {
-
-
-
             SqlConnection CRED_CONN_USER = new SqlConnection();
             CRED_CONN_USER.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Mike\\Desktop\\E-Library\\E-Library\\E-Library\\USERS_DB.mdf;Integrated Security=True;Connect Timeout=30";
 
-
-
             try
             {
+                
                 CRED_CONN_USER.Open();
 
                 SqlCommand USER_COMMAND = new SqlCommand("SELECT * FROM USER_CREDENTIALS WHERE U_NAME='" + textBox_UName.Text + "' AND U_PASS='" + texBox_Pass.Password + "'", CRED_CONN_USER);
@@ -82,30 +78,33 @@ namespace E_Library
                         SubWindow.Show();
 
                         this.Close();
-
                         CRED_CONN_USER.Close();
                     }
                     else
                     {
                         string USER_NAME = USER_DATASET.Tables[0].Rows[0]["U_NAME"].ToString();
                         string USER_PASS = USER_DATASET.Tables[0].Rows[0]["U_PASS"].ToString();
-                        MessageBox.Show("you are not an administrator, " + USER_NAME + "!");
-
+                        
+                        E_Library.BookViewer USER_VIEWER = new E_Library.BookViewer();
                         CRED_CONN_USER.Close();
+                        USER_VIEWER.Show();
+
+                        this.Close();
+                        
                     }
 
                 }
                 else
                 {
                     MessageBox.Show("Invalid username or password.");
-
                     CRED_CONN_USER.Close();
                 }
+
+                
             }
             catch(Exception DB_EXCEPTION)
             {
                 MessageBox.Show(DB_EXCEPTION.Message.ToString());
-
                 CRED_CONN_USER.Close();
             }
             
