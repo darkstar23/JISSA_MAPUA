@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
 
 namespace E_Library_System
 {
@@ -50,6 +53,56 @@ namespace E_Library_System
         private void E_Library_System_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void BOOK_ADD_Click(object sender, RoutedEventArgs e)
+        {
+            SqlConnection CRED_CONN_LIB = new SqlConnection();
+            CRED_CONN_LIB.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Mike\\Desktop\\E-Library\\E-Library\\E-Library\\BOOK_DB.mdf;Integrated Security=True;Connect Timeout=30";
+
+
+            try
+            {
+                CRED_CONN_LIB.Open();
+
+                /*
+                 * String query = "INSERT INTO dbo.SMS_PW (id,username,password,email) VALUES(@id,@username,@password, @email)";
+
+                SqlCommand command = new SqlCommand(query, db.Connection);
+                command.Parameters.Add("@id","abc");
+                command.Parameters.Add("@username","abc");
+                command.Parameters.Add("@password","abc");
+                command.Parameters.Add("@email","abc");
+
+                command.ExecuteNonQuery();
+                */
+
+                String DB_QUERY = "INSERT INTO BOOKS_IN_LIB (CALL_NUM, BOOK_TITLE, BOOK_GENRE) VALUES (@Call_Number, @Book_Title, @Book_Genre)";
+
+                SqlCommand LIB_COMMAND = new SqlCommand(DB_QUERY, CRED_CONN_LIB);
+
+                //this.ComboBox.GetItemText(this.ComboBox.SelectedItem);
+                //MessageBox.Show(selected);
+                
+
+                LIB_COMMAND.Parameters.AddWithValue("@Call_Number", textBox_CALL_NUM.Text);
+                LIB_COMMAND.Parameters.AddWithValue("@Book_Title", textBox_BOOK_DESCRIPT.Text);
+
+                LIB_COMMAND.Parameters.AddWithValue("@Book_Genre", textBox_BOOK_GENRE.SelectedValue.ToString());
+
+                LIB_COMMAND.ExecuteNonQuery();
+
+                MessageBox.Show("Book added to Library!");
+
+                CRED_CONN_LIB.Close();
+                
+            }
+            catch (Exception DB_EXCEPTION)
+            {
+                MessageBox.Show(DB_EXCEPTION.Message.ToString());
+
+                CRED_CONN_LIB.Close();
+            }
         }
     }
 }
